@@ -1,0 +1,114 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #8f3a84a3;
+  font-family: "Roboto", sans-serif;
+  line-height: 2.2rem;
+}
+
+button {
+  border: none;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+  cursor: pointer;
+}
+
+.container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.show {
+  margin-top: 2rem;
+}
+
+#header {
+  display: flex;
+  justify-content: right;
+}
+
+#i1,
+#i2 {
+  font-size: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 3rem;
+  row-gap: 2rem;
+  align-items: center;
+}
+
+.gItem {
+  background-color: aliceblue;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.gItem p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-center {
+  justify-content: center;
+}
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-right {
+  justify-content: right;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.gap {
+  gap: 2px;
+}
+
+.hidden {
+  display: none;
+}
+
+.fItem {
+  background-color: inherit;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 2px;
+}
+.skill,
+.fItem p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  background-color: aliceblue;
+  padding: 0.5rem;
+}
+
+#gBtn {
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  background-color: inherit;
+}
