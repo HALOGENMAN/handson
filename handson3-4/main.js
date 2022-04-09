@@ -203,6 +203,11 @@ const feditfunc = async (i) => {
 (async () => {
   try {
     data = await getData();
+    if (!data) {
+      alert(
+        "first start the surver.\n\n STEPS: \n 1-> Go to backend folder, in Project Folder. \n 2-> Open Terminal/cmd In backend folder path. \n 3-> Run command 'node server.js' on terminal. \n 4-> Open 'index.html' file in browser."
+      );
+    }
     makeData(data);
     btn.addEventListener("click", (e) => {
       display1.classList.toggle("hidden");
