@@ -9,11 +9,23 @@ let i2 = document.querySelector("#i2");
 
 const getData = async () => {
   try {
-    const rwa = await fetch("./data.json");
+    const rwa = await fetch("http://localhost:4321");
     const data = await rwa.json();
     return data;
   } catch (err) {
     console.log(err);
+  }
+};
+
+const updateData = async (d) => {
+  try {
+    let rec = await fetch("http://localhost:4321", {
+      method: "POST",
+      body: JSON.stringify(d),
+    });
+    return await rec.json();
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -23,15 +35,21 @@ const display2 = document.createElement("div");
 display1.className = "one";
 display2.className = "two hidden";
 
+const flexHeading = document.createElement("div");
+flexHeading.className = "fItem";
+flexHeading.innerHTML = `<p>Name</p><p>ID</p><p>Skills</p><p>Project</p><p>HCM</p><p></p>`;
+
 const makeData = (data) => {
   //for card view
   display1.innerHTML = "";
   display2.innerHTML = "";
+
   const grid = document.createElement("div");
   grid.className = "grid";
 
   const flex = document.createElement("div");
   flex.className = "flex flex-column gap";
+  flex.appendChild(flexHeading);
 
   data.forEach((e, i) => {
     let gridItem = document.createElement("div");
@@ -43,7 +61,11 @@ const makeData = (data) => {
     cls.innerHTML = `<button id="gBtn" onclick="dlt(${i})"><i class="fa-solid fa-circle-xmark" style="color:red;font-size:1.5rem"></i></button>`;
     gridItem.appendChild(cls.cloneNode(true));
 
-    let image = document.createElement;
+    //image for grid Item
+    let image = document.createElement("div");
+    image.className = "image";
+    image.innerHTML = `<img src="./images/${e.gender}.jpg" alt="${e.gender}" style="width:100%;height:100%">`;
+    gridItem.appendChild(image);
 
     let flexItem = document.createElement("div");
     flexItem.className = "fItem";
@@ -66,6 +88,7 @@ const makeData = (data) => {
     const skl = e.skills.slice().join(", ");
     skills.innerHTML = `skills: ${skl}`;
     gridItem.appendChild(skills.cloneNode(true));
+    skills.className = `fskill--${i}`;
     skills.innerHTML = `${skl}`;
     flexItem.appendChild(skills);
 
@@ -77,6 +100,8 @@ const makeData = (data) => {
     inp.className = `inp--${i}`;
     editSkill.appendChild(inp);
     gridItem.appendChild(editSkill.cloneNode(true));
+    editSkill.className = `skill feditSkill--${i} hidden`;
+    inp.className = `finp--${i}`;
     flexItem.appendChild(editSkill);
 
     let project = document.createElement("p");
@@ -97,19 +122,20 @@ const makeData = (data) => {
     let fcls = document.createElement("p");
     fcls.className = "flex flex-center";
     cls.className = "flex flex-center gap-1";
-    cls.innerHTML = `<button id="gBtn" onclick="dlt(${i})"><i class="fa-solid fa-circle-xmark" style="color:red;font-size:1.5rem"></i></button></p>`;
+    cls.innerHTML = `<button id="gBtn" class="skill saveBtn" onclick="feditfunc(${i}); return false;"><p class="ftoggle1-${i}"><i class="fa-solid fa-pen-to-square"></i></p><p class="ftoggle2-${i} hidden"><i class="fa-solid fa-floppy-disk"></i></p></button><button id="gBtn" onclick="dlt(${i})"><i class="fa-solid fa-circle-xmark" style="color:red;font-size:1.5rem"></i></button></p>`;
     fcls.appendChild(cls);
     flexItem.appendChild(fcls);
 
     let edit = document.createElement("div");
     edit.className = "flex flex-right";
-    edit.innerHTML = `<button id="gBtn" class="skill saveBtn" onclick="editfunc(${i})"><p class="toggle1-${i}">EDIT</p><p class="toggle2-${i} hidden">SAVE</p></button>`;
+    edit.innerHTML = `<button id="gBtn" class="skill saveBtn" onclick="event.preventDefault(); editfunc(${i})"><p class="toggle1-${i}">EDIT</p><p class="toggle2-${i} hidden">SAVE</p></button>`;
     gridItem.appendChild(edit.cloneNode(true));
 
     grid.appendChild(gridItem);
     display1.appendChild(grid);
 
     flex.appendChild(flexItem);
+    // display2.appendChild(flexHeading);
     display2.appendChild(flex);
   });
   show.appendChild(display1);
@@ -117,26 +143,60 @@ const makeData = (data) => {
 };
 
 //delete item;
-const dlt = (e) => {
-  data.splice(e, 1);
-  makeData(data);
+const dlt = async (e) => {
+  try {
+    data.splice(e, 1);
+    data = await updateData(data);
+    makeData(data);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-const editfunc = (i) => {
-  const toggle1 = document.querySelector(`.toggle1-${i}`);
-  const toggle2 = document.querySelector(`.toggle2-${i}`);
-  toggle1.classList.toggle("hidden");
-  toggle2.classList.toggle("hidden");
+const editfunc = async (i) => {
+  try {
+    const toggle1 = document.querySelector(`.toggle1-${i}`);
+    const toggle2 = document.querySelector(`.toggle2-${i}`);
+    toggle1.classList.toggle("hidden");
+    toggle2.classList.toggle("hidden");
 
-  const editSkill = document.querySelector(`.editSkill--${i}`);
-  const skills = document.querySelector(`.skill--${i}`);
-  skills.classList.toggle("hidden");
-  editSkill.classList.toggle("hidden");
+    const editSkill = document.querySelector(`.editSkill--${i}`);
+    const skills = document.querySelector(`.skill--${i}`);
 
-  let val = document.querySelector(`.inp--${i}`).value;
-  if (val !== "") {
-    data[i].skills.push(val);
-    makeData(data);
+    editSkill.classList.toggle("hidden");
+    skills.classList.toggle("hidden");
+
+    let val = document.querySelector(`.inp--${i}`).value;
+    if (val !== "") {
+      data[i].skills = val.split(" ").filter((e) => e !== "");
+      data = await updateData(data);
+      makeData(data);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const feditfunc = async (i) => {
+  try {
+    const toggle1 = document.querySelector(`.ftoggle1-${i}`);
+    const toggle2 = document.querySelector(`.ftoggle2-${i}`);
+    toggle1.classList.toggle("hidden");
+    toggle2.classList.toggle("hidden");
+
+    const editSkill = document.querySelector(`.feditSkill--${i}`);
+    const skills = document.querySelector(`.fskill--${i}`);
+    editSkill.classList.toggle("hidden");
+    skills.classList.toggle("hidden");
+
+    let val = document.querySelector(`.finp--${i}`).value;
+    if (val !== "") {
+      data[i].skills = val.split(" ").filter((e) => e !== "");
+      data = await updateData(data);
+      makeData(data);
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -147,7 +207,6 @@ const editfunc = (i) => {
     btn.addEventListener("click", (e) => {
       display1.classList.toggle("hidden");
       display2.classList.toggle("hidden");
-      console.log(togalView);
       if (togalView) {
         i1.style.display = "none";
         i2.style.display = "inline";

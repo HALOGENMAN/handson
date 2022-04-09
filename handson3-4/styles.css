@@ -8,7 +8,10 @@ html {
 }
 
 body {
-  background-color: #8f3a84a3;
+  /* background: linear-gradient(to right, rgb(90, 63, 55), rgb(44, 119, 68)); */
+  /* background: linear-gradient(to right, rgb(17, 67, 87), rgb(242, 148, 146)); */
+  background: linear-gradient(to right, rgb(17, 67, 87), #8f3a84a3);
+  /* background-color: #8f3a84a3; */
   font-family: "Roboto", sans-serif;
   line-height: 2.2rem;
 }
@@ -20,6 +23,7 @@ button {
   margin-bottom: 1rem;
   display: block;
   cursor: pointer;
+  color: blue;
 }
 
 .container {
@@ -87,6 +91,10 @@ button {
   gap: 2px;
 }
 
+.gap-1 {
+  gap: 1rem;
+}
+
 .hidden {
   display: none;
 }
@@ -111,4 +119,8 @@ button {
   padding: 0px;
   margin: 0px;
   background-color: inherit;
+}
+
+.image {
+  margin-top: 1rem;
 }
