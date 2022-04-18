@@ -1,0 +1,162 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-color: #e2e2e2;
+  color: #333333;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: #2335b8;
+  color: white;
+  font-size: 40px;
+  padding: 10px 30px 10px 30px;
+}
+
+.container {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  padding: 15px;
+  height: 530px;
+}
+.heading .employee_list {
+  font-size: 30px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #2335b8;
+  margin-bottom: 15px;
+}
+.container-1 {
+  display: flex;
+  gap: 10px;
+}
+
+.leftSide {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.item--0 {
+  background-color: #eaeaf8;
+}
+
+.item--1 {
+  background-color: #ffffff;
+}
+
+.rightSide {
+  width: 55%;
+  padding: 15px;
+  border: 3px solid #eaeaf8;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.topCnt {
+  display: flex;
+  gap: 15px;
+}
+
+.imgg {
+  width: 130px;
+}
+.imgCnt-name {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.imgCnt-associate {
+  font: 14px;
+}
+
+.bottomCnt {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.inside {
+  width: 70%;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.inside-item {
+  width: 150px;
+}
+
+.footer {
+  width: 100%;
+}
+
+.footer-cnt {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+  .inside {
+    width: 80%;
+  }
+  .imgg {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 418px) {
+  .header {
+    height: 75px;
+  }
+  .container {
+    width: 100%;
+    height: auto;
+  }
+  .container-1 {
+    flex-direction: column;
+  }
+  .leftSide {
+    width: 100%;
+  }
+  .rightSide {
+    width: 100%;
+  }
+  .topCnt {
+    flex-direction: column;
+  }
+  .imgCnt-1 {
+    width: 100%;
+  }
+  .imgg {
+    width: 100%;
+  }
+
+  .inside {
+    flex-direction: column;
+    gap: 0px;
+  }
+  .imgCnt-name {
+    margin-bottom: 15px;
+  }
+  .footer {
+    width: 100%;
+  }
+}
