@@ -1,0 +1,14 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Roboto;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: lightgray;
+}

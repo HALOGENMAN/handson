@@ -1,0 +1,23 @@
+.Custom-inp {
+  padding: 1rem;
+  border: none;
+  width: 100%;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  border-radius: 0.3rem;
+  outline: none;
+}
+
+.red {
+  border: 2px solid red;
+}
+
+.inputLable {
+  padding-top: 0.5rem;
+  color: red;
+  display: block;
+}
+
+.inpNone {
+  display: none;
+}
