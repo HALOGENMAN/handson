@@ -1,0 +1,34 @@
+.Shore_Container {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+.drone {
+  margin-right: 0.5rem;
+}
+
+.formSelect {
+  padding: 1rem;
+  border: none;
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  border-radius: 0.3rem;
+  outline: none;
+  background-color: white;
+}
+.formSelect_red {
+  border: 2px solid red;
+}
+
+.shoreLable {
+  padding-top: 0.5rem;
+  color: red;
+  display: block;
+}
+
+.ShoreNone {
+  display: none;
+}

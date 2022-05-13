@@ -1,0 +1,21 @@
+.fileUpload {
+  margin-top: 1.5rem;
+}
+.fileUpload h2 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.File_Custom-inp {
+  background-color: white;
+  /* padding: 1rem; */
+  border: none;
+  width: 40%;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  border-radius: 0.3rem;
+  outline: none;
+}
+.Fred {
+  border: 2px solid red;
+}

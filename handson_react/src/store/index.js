@@ -5,10 +5,17 @@ const initialState = {
   Associate_Name_valid: "Pleace enter Associate Name",
   Associate_ID: "",
   Associate_ID_valid: "Pleace enter Associate ID",
-  Associate_ID: "",
-  Associate_ID_valid: "Pleace enter Associate ID",
   Project_ID: "",
   Project_ID_valid: "Pleace enter Project ID",
+  Location_Value: "DEFAULT",
+  Location_Valid: "Please select the location",
+  Location_Type: 0,
+  Skills_Names: [],
+  Skills_Valid: "Please select Min 5 skills",
+  File_Valid: "Please upload Profile Pictur",
+  File_Check: "",
+  Comment_Valid: "Please Enter Comments",
+  Comment_Value: "",
 };
 
 const validation = createSlice({
@@ -16,7 +23,7 @@ const validation = createSlice({
   initialState,
   reducers: {
     AName(state, action) {
-      const name = action.payload.trim();
+      const name = action.payload;
       const spacial = name
         .split("")
         .find((e) => e !== " " && (e < "a" || e > "z") && (e < "A" || e > "Z"));
@@ -32,7 +39,7 @@ const validation = createSlice({
     },
     AID(state, action) {
       const name = action.payload.trim();
-      const spacial = name.split("").find((e) => e < "0" && e > "9");
+      const spacial = name.split("").find((e) => e < "0" || e > "9");
       if (name === "") {
         state.Associate_ID_valid = "Pleace enter Associate ID";
       } else if (name.length !== 6 || spacial) {
@@ -58,6 +65,60 @@ const validation = createSlice({
         state.Project_ID_valid = "";
       }
       state.Project_ID = name;
+    },
+    ALocation_select(state, action) {
+      const name = action.payload;
+      if (name === 0) {
+        state.Location_Type = 0;
+        state.Location_Value = "DEFAULT";
+        state.Location_Valid = "Please select the location";
+      } else {
+        state.Location_Type = name;
+      }
+    },
+    ALocation_Value(state, action) {
+      const name = action.payload.trim();
+      if (name === "") {
+        state.Location_Valid = "Please select the location";
+      } else {
+        state.Location_Valid = "";
+      }
+      state.Location_Value = name;
+    },
+    ASkillsEnter(state, action) {
+      const { name, check } = action.payload;
+      if (name === "distruct") {
+        state.Skills_Names = [];
+      } else if (check === true) {
+        state.Skills_Names.push(name);
+      } else {
+        state.Skills_Names = state.Skills_Names.filter((e) => e !== name);
+      }
+      if (state.Skills_Names.length < 5) {
+        state.Skills_Valid = "Please select Min 5 skills";
+      } else {
+        state.Skills_Valid = "";
+      }
+    },
+    AFileUpload(state, action) {
+      const check = action.payload;
+      if (check) {
+        state.File_Check = check;
+        state.File_Valid = "";
+      } else {
+        state.File_Check = "";
+        state.File_Valid = "Please upload Profile Pictur";
+      }
+    },
+    AComment(state, action) {
+      const name = action.payload.trim();
+      if (name === "") {
+        state.Comment_Valid = "Please Enter Comments";
+        state.Comment_Value = "";
+      } else {
+        state.Comment_Valid = "";
+        state.Comment_Value = name;
+      }
     },
   },
 });

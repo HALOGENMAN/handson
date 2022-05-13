@@ -1,0 +1,26 @@
+.form_button {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.common_btn {
+  padding: 1.5rem;
+  border: none;
+  font-size: 1.7rem;
+  color: white;
+  border-radius: 5px;
+}
+
+.Submit {
+  background-color: rgb(58, 58, 221);
+}
+
+.Submit_diabled {
+  background-color: grey;
+}
+
+.Reset {
+  background-color: rgb(241, 11, 11);
+}

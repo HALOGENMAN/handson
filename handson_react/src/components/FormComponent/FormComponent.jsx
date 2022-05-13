@@ -1,4 +1,10 @@
 import CustomInput from "../Input/CustomInput";
+import Shore from "../Shore/Shore";
+import Skills from "../Skills/Skills";
+import FileUpload from "../FileUpload/FileUpload";
+import Comment from "../Comment/Comment";
+import Buttons from "../Buttons/Buttons";
+
 import { useSelector } from "react-redux";
 import { validationAction } from "../../store/index";
 
@@ -13,6 +19,7 @@ const FormComponent = () => {
     (state) => state.validation.Project_ID_valid
   );
   const Project = useSelector((state) => state.validation.Project_ID);
+
   return (
     <>
       <CustomInput
@@ -33,6 +40,11 @@ const FormComponent = () => {
         errorMessage={errorProject}
         value={Project}
       />
+      <Shore />
+      <Skills />
+      <FileUpload />
+      <Comment />
+      <Buttons />
     </>
   );
 };
