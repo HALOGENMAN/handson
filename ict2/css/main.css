@@ -1,0 +1,20 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.mainCnt {
+  width: 100%;
+  background-color: #e4e4e4;
+}
+
+@media (max-width: 750px) {
+  .mainCnt {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .mainCnt {
+    font-size: 40px;
+  }
+}

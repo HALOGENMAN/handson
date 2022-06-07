@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>checking</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item itemcnt head">
+        <div class="item--1">Name</div>
+        <div class="item--1">ID</div>
+        <div class="item--1">Employee Salary</div>
+        <div class="item--1">Age</div>
+      </div>
+      {{#each data}}
+        <div class="item itemcnt">
+          <div class="item--1">{{employee_name}}</div>
+          <div class="item--1">{{id}}</div>
+          <div class="item--1">{{employee_salary}}</div>
+          <div class="item--1">{{employee_age}}</div>
+        </div>
+      {{/each}}
+    </div>
+    <div class="container2">
+      <div class="item-cnt2 btnPrev">prev</div>
+
+      {{#paginate pagination }}
+
+            <div onclick="opennn({{n}})" {{#if active}}class="item-cnt2 active" {{/if}}  class="item-cnt2">{{n}}</div>
+          
+      {{/paginate}}
+      <div class="item-cnt2 btnNext">next</div>
+    </div>
+    <div class="hidden page">{{active}}</div>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

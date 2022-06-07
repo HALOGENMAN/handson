@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ***************** Header ****************** */
+.brand-logo {
+  padding-top: 20px;
+  margin-left: 50%;
+}
+
+.login-container {
+  width: 100vw;
+  min-height: 90vh;
+  height: auto;
+  background-color: #e4e4e4;
+  display: flex !important;
+  align-items: center;
+}
+
+.body-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 10%;
+}
+
+.left-section {
+  display: flex;
+  height: auto;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.text-section {
+  width: 100%;
+  height: 100%;
+  margin-top: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-section-heading {
+  color: #333333;
+  font-size: 36px;
+}
+
+.text-section-text {
+  color: #5e5e5e;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+.login-btn {
+  background-color: #568f90;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  height: 35px;
+  width: 140px;
+  border: none;
+  border-radius: 20px;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+}
+
+.logo-sec {
+  height: 50px;
+  min-width: 400px;
+}
+
+.form-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-sec {
+  box-sizing: border-box;
+  background-color: #fff;
+  min-width: 300px;
+  width: 70%;
+  height: 90%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.email-input,
+.pass-input {
+  font-size: 14px;
+  background-color: #f2f2f2;
+  color: #5e5e5e;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  width: 80%;
+}
+
+.form-inner-sec {
+  width: 100%;
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forgot-pass-link {
+  font-size: 13px;
+  color: #00aeef;
+  text-decoration: none;
+  padding-right: 34px;
+}
+
+.sign-in-btn {
+  background-color: #0d3563;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  height: 35px;
+  width: 140px;
+  border: none;
+  border-radius: 20px;
+}
+
+.footer-container {
+  height: 10vh;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.help,
+.copyright {
+  color: #5e5e5e;
+  font-size: 13px;
+}
+
+.chat-para {
+  margin-bottom: unset !important;
+}
+
+.chat-link {
+  color: #00aeef;
+  font-weight: bold;
+}
+
+@media (max-width: 760px) {
+  .login-container {
+    /* width: 100vw; */
+
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .text-section {
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .brand-logo {
+    margin-left: 0;
+  }
+
+  .text-section {
+    margin-top: 20px;
+  }
+
+  .help {
+    display: flex;
+    justify-content: end;
+  }
+}
