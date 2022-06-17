@@ -1,0 +1,24 @@
+.headers {
+  background-color: #bf203b;
+  background-image: linear-gradient(315deg, #dd1d0f 10%, #cbef01 60%);
+}
+
+.active {
+  border-bottom: 2px solid rgb(63, 39, 39);
+}
+.mouse {
+  text-align: center;
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+  color: red;
+  text-shadow: 2px 2px 2px #000000;
+}
+
+.form-input {
+  padding: 20px;
+}

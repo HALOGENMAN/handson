@@ -1,0 +1,33 @@
+$success: orangered;
+$primary: pink;
+$warning: lightgreen;
+$info: orange;
+$secondary: #e93636;
+.dxcee {
+  border: 1px solid rgb(228, 129, 48);
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.ctr-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 20px;
+  .item {
+    padding: 5px;
+    background-color: #ef9ec1;
+  }
+}
+
+.dxcee:hover {
+  background-color: rgb(240, 160, 128);
+  border: none;
+}
+
+.dxce {
+  background-color: #e93636;
+}
+
+@import "~bootstrap/scss/bootstrap.scss";
